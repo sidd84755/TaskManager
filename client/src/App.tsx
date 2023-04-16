@@ -9,6 +9,7 @@ import {
   ReadyPage,
   ErrorComponent,
 } from "@pankod/refine-mui";
+import { AddTaskOutlined, Groups2Outlined, EmailRounded, AccountCircleOutlined } from '@mui/icons-material';
 
 import dataProvider from "@pankod/refine-simple-rest";
 import { MuiInferencer } from "@pankod/refine-inferencer/mui";
@@ -16,7 +17,16 @@ import routerProvider from "@pankod/refine-react-router-v6";
 import axios, { AxiosRequestConfig } from "axios";
 import { ColorModeContextProvider } from "contexts";
 import { Title, Sider, Layout, Header } from "components/layout";
-import { Login } from "pages/login";
+import { 
+  Login,
+  Team,
+  MyProfile,
+  TaskDetails,
+  AllTasks,
+  CreateTasks,
+  MemberProfile,
+  EditTask,
+ } from "./pages";
 import { CredentialResponse } from "interfaces/google";
 import { parseJwt } from "utils/parse-jwt";
 
@@ -98,12 +108,26 @@ function App() {
           catchAll={<ErrorComponent />}
           resources={[
             {
-              name: "posts",
+              name: "task",
               list: MuiInferencer,
-              edit: MuiInferencer,
-              show: MuiInferencer,
-              create: MuiInferencer,
-              canDelete: true,
+              icon: <AddTaskOutlined/>,
+            },
+            {
+              name: "team",
+              options: { label: 'Team'},
+              list: MuiInferencer,
+              icon: <Groups2Outlined/>,
+            },
+            {
+              name: "message",
+              list: MuiInferencer,
+              icon: <EmailRounded/>,
+            },
+            {
+              name: "my-profile",
+              options: { label: 'My Profile'},
+              list: MuiInferencer,
+              icon: <AccountCircleOutlined/>,
             },
           ]}
           Title={Title}
