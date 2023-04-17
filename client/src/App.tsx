@@ -108,25 +108,29 @@ function App() {
           catchAll={<ErrorComponent />}
           resources={[
             {
-              name: "task",
-              list: MuiInferencer,
+              name: "tasks",
+              list: AllTasks,
+              show: TaskDetails,
+              create: CreateTasks,
+              edit: EditTask,
               icon: <AddTaskOutlined/>,
             },
             {
               name: "team",
               options: { label: 'Team'},
-              list: MuiInferencer,
+              list: Team,
+              show: MemberProfile,
               icon: <Groups2Outlined/>,
             },
             {
-              name: "message",
+              name: "messages",
               list: MuiInferencer,
               icon: <EmailRounded/>,
             },
             {
               name: "my-profile",
               options: { label: 'My Profile'},
-              list: MuiInferencer,
+              list: MyProfile,
               icon: <AccountCircleOutlined/>,
             },
           ]}
