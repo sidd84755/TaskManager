@@ -56,22 +56,19 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading,
                 displayEmpty
                 required
                 inputProps={{'aria-label':'Without label'}}
-                defaultValue="apartment"
-                {...register('propertyType', {required: true})}
+                defaultValue="work"
+                {...register('taskType', {required: true})}
               >
-                <MenuItem value="apartment">Apartment</MenuItem>
-                <MenuItem value="villa">Villa</MenuItem>
-                <MenuItem value="farmhouse">Farmhoue</MenuItem>
-                <MenuItem value="condos">Condos</MenuItem>
-                <MenuItem value="townhouse">Townhouse</MenuItem>
-                <MenuItem value="duplex">Duplex</MenuItem>
-                <MenuItem value="studio">Studio</MenuItem>
-                <MenuItem value="chalet">Chalet</MenuItem>
+                <MenuItem value="work">Work</MenuItem>
+                <MenuItem value="errands">Errands</MenuItem>
+                <MenuItem value="meetings">Meetings</MenuItem>
+                <MenuItem value="maintenance">Maintenance</MenuItem>
+                <MenuItem value="administrative">Administrative</MenuItem>
               </Select>
             </FormControl>
             <FormControl>
               <FormHelperText sx={{fontWeight: 500, margin: '10px 0', fontSize: 16, color: '#11142d'}}>
-                Enter property price
+                Enter task deadline
               </FormHelperText>
               <TextField
                 fullWidth
@@ -80,13 +77,13 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading,
                 color="info"
                 type="number"
                 variant="outlined"
-                {...register('price', {required: true})}
+                {...register('deadline', {required: true})}
               />
             </FormControl>
           </Stack>
           <FormControl>
               <FormHelperText sx={{fontWeight: 500, margin: '10px 0', fontSize: 16, color: '#11142d'}}>
-                Enter Location
+                Collaborators
               </FormHelperText>
               <TextField
                 fullWidth
@@ -94,13 +91,13 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading,
                 id="outlined-basic"
                 color="info"
                 variant="outlined"
-                {...register('location', {required: true})}
+                {...register('collaborators', {required: true})}
               />
             </FormControl>
             <Stack direction="column" gap={1} justifyContent="center" mb={2}>
               <Stack direction="row" gap={2}>
                 <Typography color="#11142d" fontSize={16} fontWeight={500} my="10px">
-                  Property Photo
+                  Task Logo
                 </Typography>
                 <Button component="label" sx={{ width:'fit-content', color:"2ed480",
                 textTransform:'capitalize', fontSize: 16}}>
@@ -121,7 +118,7 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading,
             <CustomButton
               type="submit"
               title={formLoading ? 'Submitting...' : 'Submit'}
-              backgroundColor="#475be8"
+              backgroundColor="#FF6D60"
               color="#fcfcfc"
             />
         </form>

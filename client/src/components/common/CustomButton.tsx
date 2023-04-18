@@ -19,7 +19,7 @@ const CustomButton = ({ type, title, backgroundColor, color, fullWidth, icon, ha
         textTransform: 'capitalize',
         '&:hover': {
           opacity: 0.9,
-          backgroundColor
+          backgroundColor:"#fc2817",
         }
       }}
       onClick={handleClick}

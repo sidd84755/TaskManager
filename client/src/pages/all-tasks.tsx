@@ -16,7 +16,7 @@ const AllTasks = () => {
         <CustomButton
           title="Add Property"
           handleClick={() => navigate('/tasks/create')}
-          backgroundColor="#475be8"
+          backgroundColor="#FF6D60"
           color="#fcfcfc"
           icon={<Add/>}
         />
