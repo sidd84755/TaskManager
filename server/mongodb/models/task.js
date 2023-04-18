@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
 
-const PropertySchema = new mongoose.Schema({
+const TaskSchema = new mongoose.Schema({
     title: { type: String, required: true},
     description: { type: String, required: true},
     taskType: { type: String, required: true},
-    location: { type: String, required: true},
-    price: { type: Number, required: true},
+    collaborators: { type: String, required: true},
+    deadline: { type: Number, required: true},
     photo: { type: String, required: true},
     creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
-const propertyModel = mongoose.model('Property', PropertySchema);
+const taskModel = mongoose.model('Task', TaskSchema);
 
-export default propertyModel;
+export default taskModel;
