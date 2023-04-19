@@ -12,7 +12,7 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,    
 });
 
-const getAllProperties = async (req, res) => {
+const getAllTasks = async (req, res) => {
 
     const { _end, _order, _start, _sort, title_like = "", propertyType = "" } = req.query;
 
@@ -44,7 +44,7 @@ const getAllProperties = async (req, res) => {
     }
 };
 
-const getPropertyDetail = async (req, res) => {
+const getTaskDetail = async (req, res) => {
     const { id } = req.params;
     const propertyExists = await Property.findOne({ _id: id }).populate('creator');
 
@@ -55,7 +55,7 @@ const getPropertyDetail = async (req, res) => {
     }
 };
 
-const createProperty = async (req, res) => {
+const createTask = async (req, res) => {
     try {
         const { title, description, propertyType, location, price, 
         photo, email } = req.body;
@@ -88,7 +88,7 @@ const createProperty = async (req, res) => {
     
 };
 
-const updateProperty = async (req, res) => {
+const updateTask = async (req, res) => {
     try {
         const { id } = req.params;
         const { title, description, propertyType, location, price, photo } = req.body;
@@ -109,7 +109,7 @@ const updateProperty = async (req, res) => {
     }
 };
 
-const deleteProperty = async (req, res) => {
+const deleteTask = async (req, res) => {
     let propertyToDelete;
     try {
         const { id } = req.params;
@@ -127,9 +127,9 @@ const deleteProperty = async (req, res) => {
 };
 
 export {
-    getAllProperties,
-    getPropertyDetail,
-    createProperty,
-    updateProperty,
-    deleteProperty,
+    getAllTasks,
+    getTaskDetail,
+    createTask,
+    updateTask,
+    deleteTask,
 }

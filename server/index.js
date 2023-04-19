@@ -2,8 +2,8 @@ import express from 'express';
 import  * as dotenv from 'dotenv';
 import cors from 'cors';
 import connectDB from './mongodb/connect.js';
-// import userRouter from './routes/user.routes.js'
-// import propertyRouter from './routes/property.routes.js'
+import userRouter from './routes/user.routes.js';
+import taskRouter from './routes/task.routes.js';
 
 dotenv.config();
 
@@ -15,8 +15,8 @@ app.get('/', (req, res) => {
     res.send({ message: 'Server running' });
 })
 
-// app.use('/api/v1/users', userRouter);
-// app.use('/api/v1/properties', propertyRouter);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/task', taskRouter);
 
 const startServer = async () => {
     try {
