@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/users', userRouter);
-app.use('/api/v1/task', taskRouter);
+app.use('/api/v1/tasks', taskRouter);
 
 const startServer = async () => {
     try {

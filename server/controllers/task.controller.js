@@ -57,7 +57,7 @@ const getTaskDetail = async (req, res) => {
 
 const createTask = async (req, res) => {
     try {
-        const { title, description, propertyType, location, price, 
+        const { title, description, taskType, collaborators, deadline, 
         photo, email } = req.body;
     
         const session = await mongoose.startSession();
@@ -72,16 +72,16 @@ const createTask = async (req, res) => {
         const newProperty = await Property.create({
             title,
             description,
-            propertyType,
-            location,
-            price,
+            taskType,
+            collaborators,
+            deadline,
             photo: photoUrl.url,
             creator: user._id
         });
-        user.allProperties.push(newProperty._id);
+        user.allTasks.push(newProperty._id);
         await user.save({ session });
         await session.commitTransaction();
-        res.status(200).json({ message: 'Property created successfully' });
+        res.status(200).json({ message: 'Task created successfully' });
     } catch (error) {
         res.status(500).json({ message: error.message })        
     }

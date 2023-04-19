@@ -21,23 +21,23 @@ export const validateForm = (formValues: FormValues) => {
         }
         break;
 
-      case 'propertyType':
-        if (!formValues.propertyType) {
-          errors.message = 'Property type is required';
+      case 'taskType':
+        if (!formValues.taskType) {
+          errors.message = 'Task type is required';
           hasError = true;
         }
         break;
 
-      case 'location':
-        if (!formValues.location) {
-          errors.message = 'Location is required';
+      case 'collaborators':
+        if (!formValues.collaborators) {
+          errors.message = 'Working solo ? Enter solo';
           hasError = true;
         }
         break;
 
-      case 'price':
-        if (!formValues.price) {
-          errors.message = 'Price is required';
+      case 'deadline':
+        if (!formValues.deadline) {
+          errors.message = 'required';
           hasError = true;
         }
         break;
