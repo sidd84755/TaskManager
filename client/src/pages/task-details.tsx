@@ -125,7 +125,7 @@ const TaskDetails = () => {
                 icon={!isCurrentUser ? <ChatBubble /> : <Edit />}
                 handleClick={() => {
                   if (isCurrentUser) {
-                    navigate(`/properties/edit/${propertyDetails._id}`);
+                    navigate(`/tasks/edit/${propertyDetails._id}`);
                   }
                 }}
               />
