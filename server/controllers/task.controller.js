@@ -111,17 +111,25 @@ const updateTask = async (req, res) => {
 };
 
 const deleteTask = async (req, res) => {
-    let propertyToDelete;
     try {
         const { id } = req.params;
-        propertyToDelete = await Property.findById({ _id: id });
 
-        if (!propertyToDelete) {
-        throw new Error('Property not found');
-        }
+        const propertyToDelete = await Property.findById({ _id: id }).populate(
+            "creator",
+        );
 
-        propertyToDelete.deleteOne()
-        res.status(200).json({ message: 'Property deleted successfully', propertyToDelete });
+        if (!propertyToDelete) throw new Error("Task not found");
+
+        const session = await mongoose.startSession();
+        session.startTransaction();
+
+        propertyToDelete.deleteOne({ session });
+        propertyToDelete.creator.allTasks.pull(propertyToDelete);
+
+        await propertyToDelete.creator.save({ session });
+        await session.commitTransaction();
+
+        res.status(200).json({ message: "Task deleted successfully" });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
