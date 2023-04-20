@@ -33,7 +33,7 @@ const createUser = async (req, res) => {
 const getUserInfoById = async (req, res) => {
     try {
         const { id } = req.params;
-        const userProperties = await User.findOne({ _id: id }).populate('allProperties');
+        const userProperties = await User.findOne({ _id: id }).populate('allTasks');
     
         if (userProperties) res.status(200).json(userProperties);
         else res.status(404).send('User not found');

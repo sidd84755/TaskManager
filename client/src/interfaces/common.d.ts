@@ -14,17 +14,19 @@ export interface ProfileProps {
     name: string,
     avatar: string,
     email: string,
-    properties: Array | undefined
+    tasks: Array | undefined
 }
 
 export interface PropertyProps {
     _id: string,
     title: string,
     description: string,
-    location: string,
-    price: string,
+    collaborators: string,
+    deadline: string,
     photo: string,
-    creator: string
+    creator: string,
+    nickname: string,
+    taskType: string
 }
 
 export interface FormProps {
