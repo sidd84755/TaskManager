@@ -28,6 +28,19 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading,
           </FormControl>
           <FormControl>
             <FormHelperText sx={{fontWeight: 500, margin: '10px 0', fontSize: 16, color: '#11142d'}}>
+              Enter your name/nickname
+            </FormHelperText>
+            <TextField
+              fullWidth
+              required
+              id="outlined-basic"
+              color="info"
+              variant="outlined"
+              {...register('nickname', {required: true})}
+            />
+          </FormControl>
+          <FormControl>
+            <FormHelperText sx={{fontWeight: 500, margin: '10px 0', fontSize: 16, color: '#11142d'}}>
               Enter Description
             </FormHelperText>
             <TextareaAutosize
@@ -75,7 +88,7 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading,
                 required
                 id="outlined-basic"
                 color="info"
-                type="number"
+                type="date"
                 variant="outlined"
                 {...register('deadline', {required: true})}
               />

@@ -14,12 +14,12 @@ cloudinary.config({
 
 const getAllTasks = async (req, res) => {
 
-    const { _end, _order, _start, _sort, title_like = "", propertyType = "" } = req.query;
+    const { _end, _order, _start, _sort, title_like = "", taskType = "" } = req.query;
 
     const query = {};
 
-    if (propertyType !== '') {
-        query.propertyType = propertyType;
+    if (taskType !== '') {
+        query.taskType = taskType;
     }
 
     if (title_like !== '') {
@@ -51,13 +51,13 @@ const getTaskDetail = async (req, res) => {
     if (propertyExists) {
         res.status(200).json(propertyExists)
     } else {
-        res.status(404).json({ message: 'Property not found' });
+        res.status(404).json({ message: 'Task not found' });
     }
 };
 
 const createTask = async (req, res) => {
     try {
-        const { title, description, taskType, collaborators, deadline, 
+        const { title, nickname, description, taskType, collaborators, deadline, 
         photo, email } = req.body;
     
         const session = await mongoose.startSession();
@@ -71,6 +71,7 @@ const createTask = async (req, res) => {
     
         const newProperty = await Property.create({
             title,
+            nickname,
             description,
             taskType,
             collaborators,

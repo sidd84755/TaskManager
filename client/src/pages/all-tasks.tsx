@@ -36,7 +36,7 @@ const AllTasks = () => {
 
   return (
     <Box>
-      <Box mt="20px" sx={{display: 'flex', flexWrap: 'wrap', gap: 3, flexFlow:"column", alignItems:"center"}}>
+      <Box mt="20px" sx={{display: 'flex', flexWrap: 'wrap', gap: 3}}>
         <Stack direction="column" width="100%">
         <Typography fontSize={25} fontWeight={700} color="#11142d">
           {!allProperties.length ? 'There are no tasks' : 'All Tasks'}
@@ -101,7 +101,7 @@ const AllTasks = () => {
           icon={<Add/>}
         />
       </Stack>
-      <Box mt="20px" sx={{ display: 'flex', flexWrap: 'wrap', gap: 3 }}>
+      <Box mt="20px" sx={{ display: 'flex', flexWrap: 'wrap', gap: 3}}>
         {allProperties.map((task) => (
           <TaskCard
             key={task._id}
@@ -111,6 +111,7 @@ const AllTasks = () => {
             collaborators={task.collaborators}
             photo={task.photo}
             taskType={task.taskType}
+            nickname={task.nickname}
           />
         ))}
       </Box>
@@ -119,7 +120,7 @@ const AllTasks = () => {
           <CustomButton
             title="Previous"
             handleClick={() => setCurrent((prev) => prev - 1)}
-            backgroundColor="#475be8"
+            backgroundColor="#FF6D60"
             color="#fcfcfc"
             disabled={!(current > 1)}
           />
@@ -129,7 +130,7 @@ const AllTasks = () => {
           <CustomButton
             title="Next"
             handleClick={() => setCurrent((prev) => prev + 1 )}
-            backgroundColor="#475be8"
+            backgroundColor="#FF6D60"
             color="#fcfcfc"
             disabled={current === pageCount}
           />
