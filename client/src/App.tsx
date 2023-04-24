@@ -9,7 +9,7 @@ import {
   ReadyPage,
   ErrorComponent,
 } from "@pankod/refine-mui";
-import { AddTaskOutlined, Groups2Outlined, EmailRounded, AccountCircleOutlined } from '@mui/icons-material';
+import { AddTaskOutlined, Groups2Outlined, EmailOutlined, AccountCircleOutlined } from '@mui/icons-material';
 
 import dataProvider from "@pankod/refine-simple-rest";
 import { MuiInferencer } from "@pankod/refine-inferencer/mui";
@@ -140,7 +140,7 @@ function App() {
             {
               name: "messages",
               list: MuiInferencer,
-              icon: <EmailRounded/>,
+              icon: <EmailOutlined/>,
             },
             {
               name: "my-profile",

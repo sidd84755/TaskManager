@@ -44,7 +44,7 @@ export const Login: React.FC = () => {
       component="div"
       sx={{
         backgroundImage:`url(${loginbg})`,
-        
+        backgroundSize: "cover",
       }}
     >
       <Container

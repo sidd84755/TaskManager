@@ -73,6 +73,7 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading,
                 {...register('taskType', {required: true})}
               >
                 <MenuItem value="work">Work</MenuItem>
+                <MenuItem value="personal">Personal</MenuItem>
                 <MenuItem value="errands">Errands</MenuItem>
                 <MenuItem value="meetings">Meetings</MenuItem>
                 <MenuItem value="maintenance">Maintenance</MenuItem>
